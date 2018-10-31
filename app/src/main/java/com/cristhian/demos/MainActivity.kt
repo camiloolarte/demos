@@ -13,12 +13,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val textview:TextView = findViewById(R.id.textview) as TextView
-        val edittext:EditText = findViewById(R.id.edittext) as EditText
-        val boton:Button = findViewById(R.id.boton) as Button
+        val textview:TextView = findViewById<TextView>(R.id.textview)
+        val edittext:EditText = findViewById<EditText>(R.id.edittext)
+        val boton:Button = findViewById<Button>(R.id.boton)
 
-        boton.setOnClickListener(View.OnClickListener {
-            textview .text = edittext.text })
+        boton.setOnClickListener {
+            var num = edittext.text
+            if (num.toString().toInt() > 10){
+                textview.text = "es mayor de 10"
+            }else{
+               textview.text = "es menor a 10"
+            }
+        }
 
     }
 }
